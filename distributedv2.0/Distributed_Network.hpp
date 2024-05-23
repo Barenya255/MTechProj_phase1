@@ -101,10 +101,10 @@ class Distributed_Network {
 
             MPI_Barrier (MPI_COMM_WORLD) ;
 
-            //MPI_Win_create (heights_buffer, (sizeof(int)*local_vertices), 4, MPI_INFO_NULL, MPI_COMM_WORLD, &heights) ;
-            //MPI_Win_create (excess_buffer, (sizeof(int)*local_vertices), 4, MPI_INFO_NULL, MPI_COMM_WORLD, &excess) ;
-            //MPI_Win_create (CAND_buffer, (sizeof(int)*local_vertices),4, MPI_INFO_NULL, MPI_COMM_WORLD, &CAND) ;
-            //MPI_Win_create (work_list_buffer, (sizeof(int)*local_vertices), 4, MPI_INFO_NULL, MPI_COMM_WORLD, &work_list) ;
+            // MPI_Win_create (heights_buffer, (sizeof(int)*local_vertices), sizeof(int), MPI_INFO_NULL, MPI_COMM_WORLD, &heights) ;
+            // MPI_Win_create (excess_buffer, (sizeof(int)*local_vertices), sizeof(int), MPI_INFO_NULL, MPI_COMM_WORLD, &excess) ;
+            // MPI_Win_create (CAND_buffer, (sizeof(int)*local_vertices), sizeof(int), MPI_INFO_NULL, MPI_COMM_WORLD, &CAND) ;
+            // MPI_Win_create (work_list_buffer, (sizeof(int)*local_vertices), sizeof(int), MPI_INFO_NULL, MPI_COMM_WORLD, &work_list) ;
 
             max_distributed_flow_init (my_rank, source, sink, v_id, global_vertices, heights, excess, CAND, work_list, heights_buffer, excess_buffer, CAND_buffer, work_list_buffer) ;
             log_message ("Initialization OK ")  ;
@@ -191,6 +191,7 @@ class Distributed_Network {
 
                 // synchronize the result of all pushes.
                 std::vector<int*> update_residual_vector = synchronize (syncer_excess, 3) ;
+                // synchronize_excess () ;
                 MPI_Barrier (MPI_COMM_WORLD) ;
 
                 // update the result of all pushes.
@@ -425,12 +426,13 @@ void Distributed_Network::max_distributed_flow_init (const int &my_rank, const i
 
     log_message ("proceeding to sync") ;
     std::vector<int*> update_residual_vector = synchronize (syncer, 3) ;
-    for (auto &it:update_residual_vector) {
+    /*for (auto &it:update_residual_vector) {
         log_message (to_string (it[0]) + " : " + to_string (it[1]) + " : " + to_string (it[2])) ;
-    }
+    }*/
     MPI_Barrier (MPI_COMM_WORLD) ;
 
     update_residual (update_residual_vector, residual_graph, excess_buffer, active_vertices, source, sink, global_to_local) ;
+    synchronize_excess () ;
 
     MPI_Barrier (MPI_COMM_WORLD) ;
 	        for (int i=0; i<local_vertices; i++) {
