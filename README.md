@@ -1,6 +1,9 @@
 This was the phase 1 of my MTech Project where I focused on manually coding optimal maximum flow.
 Code generation and the paper that follows was done in phase2.
 
+Phase 2 involved finding new bottle necks in compiler generated code and ultimately led to a new code generator for distributed graph algorithms
+Pre print of it can be found here: https://arxiv.org/pdf/2512.01646
+
 # distributedv2.0
 
 ## Distributed_Network.hpp:
