@@ -31,5 +31,10 @@
  - header files levaraging METIS to generate partitions for Distributed_Network to read from.
  - The system must have METIS installed and updated in evaluate/runner.sh
 
+# Evaluate:
+ - runner.sh runs a control sequential algorithm and the distributed push relabel.
+ - It ensures correctness for every run.
+ - The METIS directory must be updated in the runner.sh script.
 
+# [Slides]([url](https://docs.google.com/presentation/d/16i2pV6ihZN7LllhNuqymHsNxosuF1KV6/edit?usp=sharing&ouid=111109121071675883151&rtpof=true&sd=true))
 
