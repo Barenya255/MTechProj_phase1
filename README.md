@@ -1,3 +1,6 @@
+This was the phase 1 of my MTech Project where I focused on manually coding optimal maximum flow.
+Code generation and the paper that follows was done in phase2.
+
 # distributedv2.0
 
 ## Distributed_Network.hpp:
@@ -36,5 +39,5 @@
  - It ensures correctness for every run.
  - The METIS directory must be updated in the runner.sh script.
 
-# [Slides]([url](https://docs.google.com/presentation/d/16i2pV6ihZN7LllhNuqymHsNxosuF1KV6/edit?usp=sharing&ouid=111109121071675883151&rtpof=true&sd=true))
+# [Slides]([url](https://docs.google.com/presentation/d/16i2pV6ihZN7LllhNuqymHsNxosuF1KV6/edit?usp=sharing&ouid=111109121071675883151&rtpof=true&sd=true)) [link]([url](https://docs.google.com/presentation/d/16i2pV6ihZN7LllhNuqymHsNxosuF1KV6/edit?usp=sharing&ouid=111109121071675883151&rtpof=true&sd=true))
 
