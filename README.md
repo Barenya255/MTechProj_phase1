@@ -39,5 +39,6 @@ Code generation and the paper that follows was done in phase2.
  - It ensures correctness for every run.
  - The METIS directory must be updated in the runner.sh script.
 
-# Slides : docs.google.com/presentation/d/16i2pV6ihZN7LllhNuqymHsNxosuF1KV6
+# Slides : 
+ - docs.google.com/presentation/d/16i2pV6ihZN7LllhNuqymHsNxosuF1KV6
 
